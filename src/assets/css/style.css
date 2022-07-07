@@ -1,0 +1,18 @@
+:root {
+    font-family: 'Roboto', sans-serif;
+}
+.main {
+    margin: 68px 90px 0 109px;
+}
+#hello {
+    font-weight: 500;
+    font-size: 48px;
+}
+#congratulations-message {
+    font-weight: 400;
+    font-size: 18px;
+    margin: 41px 0 77px 0;
+}
+.red {
+    color: #FF0101;
+}
