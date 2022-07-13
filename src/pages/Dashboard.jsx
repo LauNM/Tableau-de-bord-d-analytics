@@ -21,7 +21,7 @@ const user = {
 }
 function Dashboard() {
     return (
-        <div className={"main"}>
+        <div className={"dashboard"}>
             <h1 id="hello">Bonjour <span className='red'>{user.userInfos.firstName}</span></h1>
             <p id='congratulations-message'>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
             <div className={"charts"}>

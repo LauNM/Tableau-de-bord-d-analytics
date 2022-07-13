@@ -1,0 +1,21 @@
+.lateralNavbar {
+    position: fixed;
+    top: 117px;
+    width: 117px;
+    height: calc(100% - 117px);
+    background: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.lateralNavbar .section {
+    align-self: center;
+    display: flex;
+    gap: 12px;
+    flex-direction: column;
+}
+.lateralNavbar .copyright {
+    position: fixed;
+    bottom: 20px;
+    left: 42px;
+}

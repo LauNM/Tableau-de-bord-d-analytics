@@ -1,0 +1,21 @@
+.navbar {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: black;
+    height: 117px;
+    display: inline-flex;
+    align-items: center;
+}
+.navbar .logo {
+    margin-left: 29px;
+}
+.navbar .navbar-items {
+    list-style: none;
+    color: white;
+    display: inline-flex;
+    width: 90%;
+    justify-content: space-evenly;
+}

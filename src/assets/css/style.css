@@ -2,6 +2,10 @@
     font-family: 'Roboto', sans-serif;
 }
 .main {
+    padding: 117px 0 0 117px;
+    z-index: 2;
+}
+.dashboard {
     margin: 68px 90px 0 109px;
 }
 #hello {
