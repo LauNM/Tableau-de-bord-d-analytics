@@ -1,4 +1,8 @@
 import '../assets/css/style.css';
+import ChartBar from "../components/Bar/ChartBar";
+import ChartLine from "../components/Line/ChartLine";
+import ChartPie from "../components/Pie/ChartPie";
+import ChartRadar from "../components/Radar/ChartRadar";
 
 const user = {
     "id":18,
@@ -17,9 +21,15 @@ const user = {
 }
 function Dashboard() {
     return (
-        <div className="main">
+        <div className={"main"}>
             <h1 id="hello">Bonjour <span className='red'>{user.userInfos.firstName}</span></h1>
             <p id='congratulations-message'>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+            <div className={"charts"}>
+                <ChartBar />
+                <ChartLine />
+                <ChartPie />
+                <ChartRadar />
+            </div>
         </div>
     
     )
