@@ -1,7 +1,7 @@
 import "./style.css";
 import { PieChart, Pie } from 'recharts';
 
-function ChartPie() {
+function ChartPie(id) {
   const data = [
     { name: 'Group A', value: 400 },
     { name: 'Group B', value: 300 },

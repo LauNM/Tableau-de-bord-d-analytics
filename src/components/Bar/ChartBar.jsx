@@ -2,7 +2,7 @@ import "./style.css";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import { data } from "../../api/fetchMockData"
 
-function ChartBar() {
+function ChartBar(id) {
 return (
   <BarChart
     width={500}

@@ -3,7 +3,7 @@ import { dataRadar } from "../../api/fetchMockData";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from 'recharts';
 
 
-function ChartRadar() {
+function ChartRadar(id) {
   return (
     <RadarChart  outerRadius={90} width={730} height={250} data={dataRadar}>
       <PolarGrid />

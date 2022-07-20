@@ -2,7 +2,7 @@ import "./style.css";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import { data } from "../../api/fetchMockData"
 
-function ChartLine() {
+function ChartLine(id) {
   return (
     <LineChart
       width={500}
