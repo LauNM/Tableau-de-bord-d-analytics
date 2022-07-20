@@ -14,7 +14,9 @@ function LateralNavBar() {
         <Ride />
         <BodyBuilding />
       </div>
-      <Copyright className={'copyright'}/>
+      <div className={'copyright'}>
+        <Copyright />
+      </div>
     </div>
   )
 }
