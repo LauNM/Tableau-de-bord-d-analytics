@@ -1,0 +1,17 @@
+.info-card {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  padding: 32px;
+  .logo {
+
+  }
+  .infos {
+    h2 {
+      margin: 0 0 10px;
+    }
+    p {
+      margin: 0;
+    }
+  }
+}

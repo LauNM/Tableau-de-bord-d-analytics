@@ -1,4 +1,4 @@
-import "./style.css";
+import "./style.scss";
 import { ReactComponent as Relax} from "../../assets/images/icon1.svg";
 import { ReactComponent as Swim} from "../../assets/images/icon2.svg";
 import { ReactComponent as Ride} from "../../assets/images/icon3.svg";

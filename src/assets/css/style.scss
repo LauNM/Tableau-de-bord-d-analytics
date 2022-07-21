@@ -1,0 +1,59 @@
+:root {
+  font-family: 'Roboto', sans-serif;
+}
+
+.red {
+  color: #FF0101;
+}
+
+.main {
+  padding: 91px 0 0 117px;
+  z-index: 2;
+
+  .dashboard {
+    margin: 46px 90px 0 109px;
+
+    .dashboard-header {
+
+      #hello {
+        font-weight: 500;
+        font-size: 48px;
+      }
+
+      #congratulations-message {
+        font-weight: 400;
+        font-size: 18px;
+        margin: 41px 0 77px 0;
+      }
+    }
+
+    .dashboard-main {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      .charts {
+        display: flex;
+        flex: 1 1 80%;
+        flex-direction: column;
+        gap: 30px;
+        .main-chart {
+          width: 100%;
+          height: 320px;
+        }
+        .secondary-chart {
+          width: 100%;
+          height: 320px;
+          display: flex;
+          gap: 30px;
+        }
+      }
+      .numbers-info {
+        flex: 0 0 20%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 39px;
+      }
+    }
+  }
+}

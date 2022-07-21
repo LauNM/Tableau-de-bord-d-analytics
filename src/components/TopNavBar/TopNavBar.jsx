@@ -1,4 +1,4 @@
-import "./style.css";
+import "./style.scss";
 import { ReactComponent as Logo} from "../../assets/images/logo.svg";
 
 function TopNavBar() {
