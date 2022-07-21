@@ -4,6 +4,7 @@ import TopNavBar from "./components/TopNavBar/TopNavBar";
 import LateralNavBar from "./components/LateralNavBar/LateralNavBar";
 import {useCallback, useState} from "react";
 import { user } from "./api/fetchMockData";
+import Home from "./pages/Home";
 
 function App() {
   const [userSelected, setSelected] = useState(null);
@@ -19,7 +20,7 @@ function App() {
         {user.map((el) =>
           <button key={el.id} onClick={handleClick(el)}>User {el.id}</button>
         )}
-        { userSelected ? <Dashboard id={userSelected.id} name={userSelected.userInfos.firstName}/> : '' }
+        { userSelected ? <Dashboard id={userSelected.id} name={userSelected.userInfos.firstName}/> : <Home /> }
       </div>
     </div>
   );
