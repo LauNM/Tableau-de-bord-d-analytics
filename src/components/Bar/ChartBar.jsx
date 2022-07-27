@@ -7,20 +7,21 @@ function ChartBar(id) {
    <ResponsiveContainer>
       <BarChart
         data={data}
-        margin={{
-          top: 5,
+        barSize={7}
+        /*margin={{
+          top: 20,
           right: 30,
           left: 20,
           bottom: 5,
-        }}
+        }}*/
       >
-        <CartesianGrid strokeDasharray="3 3"/>
+        <CartesianGrid strokeDasharray="3" vertical={false}/>
         <XAxis dataKey="name"/>
-        <YAxis/>
+        <YAxis orientation={"right"}/>
         <Tooltip/>
-        <Legend/>
+        <Legend verticalAlign="top" align="right" iconType="circle" iconSize={8} height={50}/>
         <Bar dataKey="pv" fill="#8884d8"/>
-        <Bar dataKey="uv" fill="#82ca9d"/>
+        <Bar dataKey="uv" fill="#82ca9d" />
       </BarChart>
     </ResponsiveContainer>
   )
