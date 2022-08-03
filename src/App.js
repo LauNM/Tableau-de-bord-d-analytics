@@ -20,7 +20,7 @@ function App() {
         )}
         <Routes>
           <Route path="" element={<Home />} />
-          <Route path="/:id" element={<Dashboard data={user} />} />
+          <Route path="/:id" element={<Dashboard />} />
         </Routes>
       </div>
     </div>

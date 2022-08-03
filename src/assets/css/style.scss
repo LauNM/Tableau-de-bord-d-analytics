@@ -6,6 +6,10 @@
   color: #FF0101;
 }
 
+.main-chart, .secondary-chart > div, .numbers-info > div {
+  background-color: #FBFBFB;
+}
+
 .main {
   padding: 91px 0 0 117px;
   z-index: 2;
@@ -33,6 +37,7 @@
       display: flex;
       justify-content: space-between;
       width: 100%;
+      gap: 30px;
       .charts {
         display: flex;
         flex: 1 1 835px;

@@ -1,8 +1,12 @@
 import "./style.scss";
 import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from 'recharts';
-import {data} from "../../api/fetchMockData"
+import { userAverageSessions } from "../../api/fetchMockData"
 
-function ChartLine(id) {
+function ChartLine({id = Number}) {
+
+  let user = userAverageSessions.find((user) => user.userId === id);
+  let data = user.sessions;
+
   return (
     <ResponsiveContainer>
       <LineChart
@@ -15,12 +19,11 @@ function ChartLine(id) {
         }}
       >
         <CartesianGrid strokeDasharray="3 3"/>
-        <XAxis dataKey="name"/>
+        <XAxis/>
         <YAxis/>
         <Tooltip/>
         <Legend/>
-        <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }}/>
-        <Line type="monotone" dataKey="uv" stroke="#82ca9d"/>
+        <Line type="monotone" dataKey="sessionLength" stroke="#82ca9d"/>
       </LineChart>
     </ResponsiveContainer>
   )

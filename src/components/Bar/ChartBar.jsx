@@ -1,30 +1,41 @@
 import "./style.scss";
 import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from 'recharts';
-import {data} from "../../api/fetchMockData"
+import { userActivity } from "../../api/fetchMockData"
 
-function ChartBar(id) {
+
+const onlyDay = (date) => {
+  const newDate = new Date(date);
+  return newDate.getDate();
+}
+
+function ChartBar({id = Number}) {
+
+  let user = userActivity.find((user) => user.userId === id);
+  let data = user.sessions;
+  data = data.map((obj) => ({
+    day: onlyDay(obj.day),
+    kilogram: obj.kilogram,
+    calories: obj.calories
+  }))
+
+
   return (
    <ResponsiveContainer>
       <BarChart
         data={data}
         barSize={7}
-        /*margin={{
-          top: 20,
-          right: 30,
-          left: 20,
-          bottom: 5,
-        }}*/
       >
-        <CartesianGrid strokeDasharray="3" vertical={false}/>
-        <XAxis dataKey="name"/>
+        <CartesianGrid strokeDasharray="3" vertical={false} />
+        <XAxis dataKey="day"/>
         <YAxis orientation={"right"}/>
-        <Tooltip/>
+        <Tooltip />
         <Legend verticalAlign="top" align="right" iconType="circle" iconSize={8} height={50}/>
-        <Bar dataKey="pv" fill="#8884d8"/>
-        <Bar dataKey="uv" fill="#82ca9d" />
+        <Bar name="Poids (kg)" dataKey="kilogram" fill="#8884d8"/>
+        <Bar name="Calories brûlées (kCal)" dataKey="calories" fill="#82ca9d" />
       </BarChart>
     </ResponsiveContainer>
   )
 }
 
 export default ChartBar;
+
