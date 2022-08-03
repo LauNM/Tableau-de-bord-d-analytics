@@ -1,26 +1,27 @@
 import './App.css';
+import { Routes, Route, Link } from "react-router-dom";
 import Dashboard from './pages/Dashboard';
 import TopNavBar from "./components/TopNavBar/TopNavBar";
 import LateralNavBar from "./components/LateralNavBar/LateralNavBar";
-import {useCallback, useState} from "react";
 import { user } from "./api/fetchMockData";
 import Home from "./pages/Home";
 
 function App() {
-  const [userSelected, setSelected] = useState(null);
-  const handleClick = useCallback(
-    (user) => () => setSelected(user),
-    []
-  );
+
   return (
     <div className="App">
       <TopNavBar />
       <LateralNavBar />
       <div className={'main'}>
         {user.map((el) =>
-          <button key={el.id} onClick={handleClick(el)}>User {el.id}</button>
+        <Link to={`/${el.id}`} key={el.id}>
+           <button key={el.id}>User {el.id}</button>
+        </Link>
         )}
-        { userSelected ? <Dashboard id={userSelected.id} name={userSelected.userInfos.firstName}/> : <Home /> }
+        <Routes>
+          <Route path="" element={<Home />} />
+          <Route path="/:id" element={<Dashboard data={user} />} />
+        </Routes>
       </div>
     </div>
   );
