@@ -1,6 +1,9 @@
 import '../assets/css/style.scss';
 import {useParams, Navigate} from "react-router-dom";
-import logo1 from "../assets/images/calories-icon.svg";
+import calories from "../assets/images/calories-icon.svg";
+import proteines from "../assets/images/protein-icon.svg";
+import glucides from "../assets/images/carbs-icon.svg";
+import lipides from "../assets/images/fat-icon.svg";
 import ChartBar from "../components/Bar/ChartBar";
 import ChartLine from "../components/Line/ChartLine";
 import ChartPie from "../components/Pie/ChartPie";
@@ -33,17 +36,17 @@ function Dashboard() {
                     </div>
                 </div>
                 <div className={"numbers-info"}>
-                    <InfoCard text={'1.930kCal'} category={'Calories'}>
-                        <img src={logo1} alt="" />
+                    <InfoCard text={`${currentUser.keyData.calorieCount/1000}kCal`} category={'Calories'}>
+                        <img src={calories} alt="" />
                     </InfoCard>
-                    <InfoCard text={'1.930kCal'} category={'Calories'}>
-                        <img src={logo1} alt="" />
+                    <InfoCard text={`${currentUser.keyData.proteinCount}g`} category={'Proteines'}>
+                        <img src={proteines} alt="" />
                     </InfoCard>
-                    <InfoCard text={'1.930kCal'} category={'Calories'}>
-                        <img src={logo1} alt="" />
+                    <InfoCard text={`${currentUser.keyData.carbohydrateCount}g`} category={'Glucides'}>
+                        <img src={glucides} alt="" />
                     </InfoCard>
-                    <InfoCard text={'1.930kCal'} category={'Calories'}>
-                        <img src={logo1} alt="" />
+                    <InfoCard text={`${currentUser.keyData.lipidCount}g`} category={'Lipides'}>
+                        <img src={lipides} alt="" />
                     </InfoCard>
                 </div>
             </div>

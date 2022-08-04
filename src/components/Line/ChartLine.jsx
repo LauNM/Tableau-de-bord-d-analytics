@@ -11,19 +11,18 @@ function ChartLine({id = Number}) {
     <ResponsiveContainer>
       <LineChart
         data={data}
-        margin={{
+       /*  margin={{
           top: 5,
           right: 30,
           left: 20,
           bottom: 5,
-        }}
+        }} */
       >
-        <CartesianGrid strokeDasharray="3 3"/>
+        {/* <CartesianGrid strokeDasharray="3 3"/> */}
         <XAxis/>
-        <YAxis/>
+        <YAxis type="number" domain={[ 'dataMin - 5', 'dataMax']} hide/>
         <Tooltip/>
-        <Legend/>
-        <Line type="monotone" dataKey="sessionLength" stroke="#82ca9d"/>
+        <Line type="monotone" dataKey="sessionLength" stroke="#82ca9d" strokeWidth={2}/>
       </LineChart>
     </ResponsiveContainer>
   )
