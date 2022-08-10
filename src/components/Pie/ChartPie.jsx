@@ -1,23 +1,33 @@
 import "./style.scss";
-import {PieChart, Pie, Cell, ResponsiveContainer} from 'recharts';
+import {PieChart, Pie, Cell, ResponsiveContainer, Legend} from 'recharts';
+
+function customLegend({ payload, score }) {
+  return (
+    <p><strong>{score * 100}%</strong> <br />de votre objectif</p>
+  );
+}
 
 function ChartPie({score = Number}) {
-  let data = [{value: score}, {value: 1-score}]
-  const COLORS = ['#FF0000', '#E5E5E5'];
+  let data = [{value: score, color: '#FF0000'}, {value: 1-score, color: '#FBFBFB'}]
 
   return (
     <ResponsiveContainer>
       <PieChart>
+        <Legend content={customLegend(12)} width={70} layout={'vertical'} align="center" verticalAlign="middle" iconSize={0}/>
         <Pie 
            data={data}
            innerRadius={60}
            outerRadius={70}
-           fill="#8884d8"
-           paddingAngle={5}
-           dataKey="value">
-            {data.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-          ))}
+           dataKey="value"
+           startAngle={180} 
+           endAngle={-180}
+           minAngle={80}
+           >
+            {
+      data.map((entry, index) => (
+        <Cell key={`cell-${entry.value}`} fill={entry.color} />
+      ))
+    }
           </Pie>
       </PieChart>
     </ResponsiveContainer>
