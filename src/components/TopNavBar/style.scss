@@ -1,6 +1,6 @@
 .navbar {
     z-index: 1;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -8,14 +8,16 @@
     height: 91px;
     display: inline-flex;
     align-items: center;
-}
-.navbar .logo {
-    margin-left: 29px;
-}
-.navbar .navbar-items {
-    list-style: none;
-    color: white;
-    display: inline-flex;
-    width: 90%;
-    justify-content: space-evenly;
+
+    .logo {
+        margin-left: 29px;
+    }
+
+    .navbar-items {
+        list-style: none;
+        color: white;
+        display: inline-flex;
+        width: 90%;
+        justify-content: space-evenly;
+    }
 }

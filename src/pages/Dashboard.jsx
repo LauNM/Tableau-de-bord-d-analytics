@@ -30,9 +30,12 @@ function Dashboard() {
                         <ChartBar id={currentUser.id} />
                     </div>
                     <div className={"secondary-chart"}>
-                        <ChartLine id={currentUser.id} />
+                        {/* <ChartLine id={currentUser.id} /> 
                         <ChartRadar id={currentUser.id} />
-                        <ChartPie score={currentUser.score} />
+                        <ChartPie score={currentUser.score} /> */}
+                       <div className={"one-third"}><ChartLine id={currentUser.id} /></div> 
+                       <div className={"one-third"}><ChartRadar id={currentUser.id} /></div> 
+                       <div className={"one-third"}><ChartPie score={currentUser.score} /></div> 
                     </div>
                 </div>
                 <div className={"numbers-info"}>

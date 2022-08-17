@@ -1,6 +1,7 @@
 .lateralNavbar {
-    position: fixed;
+    position: absolute;
     top: 91px;
+    left: 0;
     width: 117px;
     height: calc(100% - 91px);
     background: black;
@@ -8,17 +9,18 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-}
-.lateralNavbar .section {
-    height: 60%;
-    display: flex;
-    justify-content: flex-end;
-    gap: 12px;
-    flex-direction: column;
-}
-.lateralNavbar .copyright {
-    display: flex;
-    align-items: flex-end;
-    height: 40%;
-    padding: 12px 0 59px;
-}
+
+    .section {
+      height: 60%;
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      flex-direction: column;
+    }
+    .copyright {
+      display: flex;
+      align-items: flex-end;
+      height: 40%;
+      padding: 12px 0 59px;
+    }
+  }

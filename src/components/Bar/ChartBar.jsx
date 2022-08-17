@@ -31,8 +31,9 @@ function ChartBar({id = Number}) {
     calories: obj.calories
   }))
   return (
-   <ResponsiveContainer>
+   <ResponsiveContainer  width="100%" height="100%">
       <BarChart
+      width={150} height={40} 
         data={data}
         barSize={7}
       >

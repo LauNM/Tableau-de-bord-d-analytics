@@ -13,11 +13,13 @@ function App() {
       <TopNavBar />
       <LateralNavBar />
       <div className={'main'}>
-        {user.map((el) =>
+        <div className={'choose-user'}>
+           {user.map((el) =>
         <Link to={`/${el.id}`} key={el.id}>
            <button key={el.id}>User {el.id}</button>
         </Link>
         )}
+        </div>
         <Routes>
           <Route path="" element={<Home />} />
           <Route path="/:id" element={<Dashboard />} />

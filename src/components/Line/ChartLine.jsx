@@ -1,5 +1,5 @@
 import "./style.scss";
-import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from 'recharts';
+import {LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer} from 'recharts';
 import { userAverageSessions } from "../../api/fetchMockData"
 
 function ChartLine({id = Number}) {
@@ -11,12 +11,12 @@ function ChartLine({id = Number}) {
     <ResponsiveContainer>
       <LineChart
         data={data}
-       /*  margin={{
-          top: 5,
-          right: 30,
+        margin={{
+          top: 20,
+          right: 20,
           left: 20,
-          bottom: 5,
-        }} */
+          bottom: 20,
+        }}
       >
         {/* <CartesianGrid strokeDasharray="3 3"/> */}
         <XAxis/>

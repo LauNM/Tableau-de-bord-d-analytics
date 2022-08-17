@@ -1,9 +1,9 @@
 import "./style.scss";
 import {PieChart, Pie, Cell, ResponsiveContainer, Legend} from 'recharts';
 
-function customLegend({ payload, score }) {
+function customLegend({ score }) {
   return (
-    <p><strong>{score * 100}%</strong> <br />de votre objectif</p>
+    <p style={{textAlign: 'center'}}><strong>{score * 100}%</strong> <br />de votre objectif</p>
   );
 }
 
@@ -13,7 +13,7 @@ function ChartPie({score = Number}) {
   return (
     <ResponsiveContainer>
       <PieChart>
-        <Legend content={customLegend(12)} width={70} layout={'vertical'} align="center" verticalAlign="middle" iconSize={0}/>
+        <Legend content={() => customLegend({score})} width={70} layout={'vertical'} verticalAlign="middle" />
         <Pie 
            data={data}
            innerRadius={60}
