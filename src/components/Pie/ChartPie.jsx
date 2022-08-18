@@ -1,11 +1,23 @@
 import "./style.scss";
 import {PieChart, Pie, Cell, ResponsiveContainer, Legend} from 'recharts';
 
-function customLegend({ score }) {
+function customLegend({score}) {
   return (
     <p style={{textAlign: 'center'}}><strong>{score * 100}%</strong> <br />de votre objectif</p>
+
   );
 }
+
+/* const renderCustomizedLabel = () => {
+  return (
+    <g>
+       <text x={15} y={30} font-size="15" fontWeight="500">
+          {"Score"}
+      </text>
+    </g>
+     
+  );
+}; */
 
 function ChartPie({score = Number}) {
   let data = [{value: score, color: '#FF0000'}, {value: 1-score, color: '#FBFBFB'}]

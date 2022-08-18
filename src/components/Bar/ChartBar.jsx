@@ -10,7 +10,7 @@ const onlyDay = (date) => {
 function CustomTooltip({ payload, active }) {
   if (active) {
     return (
-      <div className="custom-tooltip">
+      <div className="chart-bar-custom-tooltip">
         <p>{`${payload[0].value}kg`}</p>
         <p>{`${payload[1].value}kCal`}</p>
       </div>

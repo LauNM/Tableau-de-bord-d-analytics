@@ -27,12 +27,16 @@ function Dashboard() {
             <div className={"dashboard-main"}>
                 <div className={"charts"}>
                     <div className={"main-chart wrapper light p-24"}>
+                        <p className={"chart-title pt-5"}>Activité quotidienne</p>
                         <ChartBar id={currentUser.id} />
                     </div>
                     <div className={"secondary-chart"}>
                        <div className={"one-third wrapper color"}><ChartLine id={currentUser.id} /></div> 
                        <div className={"one-third wrapper dark"}><ChartRadar id={currentUser.id} /></div> 
-                       <div className={"one-third wrapper light"}><ChartPie score={currentUser.score} /></div> 
+                       <div className={"one-third wrapper light"}>
+                        <p className={"chart-title pl-15 pt-15"}>Score</p>
+                        <ChartPie score={currentUser.score} />
+                        </div> 
                     </div>
                 </div>
                 <div className={"numbers-info"}>
