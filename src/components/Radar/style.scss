@@ -1,0 +1,7 @@
+.radar-custom-tick {
+    color: white;
+    font-size: 16px;
+    @media only screen and (max-width: 1300px) {
+        font-size: 12px;
+      }
+}

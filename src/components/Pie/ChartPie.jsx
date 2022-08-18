@@ -11,7 +11,7 @@ function ChartPie({score = Number}) {
   let data = [{value: score, color: '#FF0000'}, {value: 1-score, color: '#FBFBFB'}]
 
   return (
-    <ResponsiveContainer>
+    <ResponsiveContainer width="100%" aspect={1}>
       <PieChart>
         <Legend content={() => customLegend({score})} width={70} layout={'vertical'} verticalAlign="middle" />
         <Pie 

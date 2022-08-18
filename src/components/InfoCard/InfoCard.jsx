@@ -2,7 +2,7 @@ import "./style.scss";
 
 function InfoCard ({text= "", category = "", children}) {
   return (
-    <div className={"info-card"}>
+    <div className={"info-card wrapper light"}>
       <div className={"logo"}>
         {children}
       </div>

@@ -14,15 +14,16 @@ let translations = [
 function customTick({ payload, x, y, textAnchor }) {
   return (
     <g
-      className="recharts-layer recharts-polar-angle-axis-tick"
+      className="radar-custom-tick"
     >
       <text
         x={x}
         y={y}
         textAnchor={textAnchor}
+        fill="#FFF"
       >
         <tspan>
-          {translations.find((item) => item.name === payload.value).value}
+          {payload.value}
         </tspan>
       </text>
     </g>
@@ -36,17 +37,20 @@ function ChartRadar({ id = Number }) {
 
   let userData = performances.data;
   userData = userData.map((el) => ({
+    index: translations.find((item) => item.name === kindList[el.kind]).index,
+    translation: translations.find((item) => item.name === kindList[el.kind]).value,
     value: el.value,
     kind: kindList[el.kind]
-  }))
-
+  })).sort((a,b) => a.index - b.index)
 
   return (
-    <ResponsiveContainer >
-      <RadarChart  outerRadius={75} data={userData} startAngle={30} endAngle={-330}>
+    <ResponsiveContainer width="100%" aspect={1}>
+      <RadarChart outerRadius="50%" data={userData} >
         <PolarGrid radialLines={false} />
-        <PolarAngleAxis dataKey={'kind'} tick={customTick} />
+        <PolarAngleAxis dataKey={'translation'} tick={customTick} />
         <Radar dataKey="value" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+
+        <Radar dataKey="value" stroke="#FF0101" fill="#FF0101" fillOpacity={0.7} />
       </RadarChart>
     </ResponsiveContainer>
   );

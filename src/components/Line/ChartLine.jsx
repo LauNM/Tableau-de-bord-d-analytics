@@ -8,7 +8,7 @@ function ChartLine({id = Number}) {
   let data = user.sessions;
 
   return (
-    <ResponsiveContainer>
+    <ResponsiveContainer width="100%" aspect={1}>
       <LineChart
         data={data}
         margin={{
