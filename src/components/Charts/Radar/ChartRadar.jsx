@@ -1,5 +1,5 @@
 import "./style.scss";
-import { userPerformance } from "../../api/fetchMockData";
+import { userPerformance } from "api/fetchMockData";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
 
 let translations = [
@@ -18,7 +18,7 @@ function customTick({ payload, x, y, textAnchor }) {
     >
       <text
         x={x}
-        y={y}
+        y={y < 100 ? y : y + 10}
         textAnchor={textAnchor}
         fill="#FFF"
       >

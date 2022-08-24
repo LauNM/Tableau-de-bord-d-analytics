@@ -1,6 +1,6 @@
 import "./style.scss";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend } from 'recharts';
-import { userAverageSessions } from "../../api/fetchMockData"
+import { userAverageSessions } from "api/fetchMockData"
 
 const daysOfWeek = [
   { index: 1, day: 'L' },
@@ -40,7 +40,7 @@ function ChartLine({ id = Number }) {
   }))
 
   return (
-    <ResponsiveContainer width="100%" aspect={1}>
+    <ResponsiveContainer width="100%" aspect={1} >
       <LineChart
         data={data}
         margin={{

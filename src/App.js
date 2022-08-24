@@ -1,10 +1,10 @@
 import './App.css';
 import { Routes, Route, Link } from "react-router-dom";
-import Dashboard from './pages/Dashboard';
-import TopNavBar from "./components/TopNavBar/TopNavBar";
-import LateralNavBar from "./components/LateralNavBar/LateralNavBar";
-import { user } from "./api/fetchMockData";
-import Home from "./pages/Home";
+import Dashboard from 'pages/Dashboard';
+import TopNavBar from "components/Navbar/TopNavBar/TopNavBar";
+import LateralNavBar from "components/Navbar/LateralNavBar/LateralNavBar";
+import { user } from "api/fetchMockData";
+import Home from "pages/Home";
 
 function App() {
 

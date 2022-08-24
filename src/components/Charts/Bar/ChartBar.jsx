@@ -1,6 +1,6 @@
 import "./style.scss";
 import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from 'recharts';
-import { userActivity } from "../../api/fetchMockData"
+import { userActivity } from "api/fetchMockData"
 
 
 const onlyDay = (date) => {

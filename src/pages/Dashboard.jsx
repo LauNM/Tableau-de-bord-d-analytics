@@ -4,10 +4,10 @@ import calories from "../assets/images/calories-icon.svg";
 import proteines from "../assets/images/protein-icon.svg";
 import glucides from "../assets/images/carbs-icon.svg";
 import lipides from "../assets/images/fat-icon.svg";
-import ChartBar from "../components/Bar/ChartBar";
-import ChartLine from "../components/Line/ChartLine";
-import ChartPie from "../components/Pie/ChartPie";
-import ChartRadar from "../components/Radar/ChartRadar";
+import ChartBar from "../components/Charts/Bar/ChartBar";
+import ChartLine from "../components/Charts/Line/ChartLine";
+import ChartPie from "../components/Charts/Pie/ChartPie";
+import ChartRadar from "../components/Charts/Radar/ChartRadar";
 import InfoCard from "../components/InfoCard/InfoCard";
 import { user } from "../api/fetchMockData";
 
