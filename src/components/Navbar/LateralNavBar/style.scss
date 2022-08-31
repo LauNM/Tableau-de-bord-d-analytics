@@ -1,9 +1,5 @@
 .lateralNavbar {
-    position: absolute;
-    top: 91px;
-    left: 0;
-    width: 117px;
-    height: calc(100% - 91px);
+    flex: 0 0 117px;
     background: black;
     display: flex;
     flex-direction: column;

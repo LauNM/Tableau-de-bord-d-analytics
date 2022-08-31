@@ -1,5 +1,5 @@
 import '../assets/css/style.scss';
-import {useParams, Navigate} from "react-router-dom";
+import {useParams, Navigate } from "react-router-dom";
 import calories from "../assets/images/calories-icon.svg";
 import proteines from "../assets/images/protein-icon.svg";
 import glucides from "../assets/images/carbs-icon.svg";
@@ -10,9 +10,13 @@ import ChartPie from "../components/Charts/Pie/ChartPie";
 import ChartRadar from "../components/Charts/Radar/ChartRadar";
 import InfoCard from "../components/InfoCard/InfoCard";
 import { user } from "../api/fetchMockData";
+/* import { getUser } from "api/service";
+import { useEffect, useState } from 'react'; */
 
 function Dashboard() {
     let params = useParams();
+    
+    //console.log(getUser(parseInt(params.id, 10)))
     let currentUser = user.find((element) => element.id === parseInt(params.id, 10));
     if (currentUser === undefined) {
       return <Navigate to="/"/>

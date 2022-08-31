@@ -1,6 +1,7 @@
 import "./style.scss";
-import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend,ReferenceArea } from 'recharts';
 import { userAverageSessions } from "api/fetchMockData"
+import {useState} from "react"
 
 const daysOfWeek = [
   { index: 1, day: 'L' },
@@ -30,7 +31,7 @@ function CustomLegend() {
 }
 
 function ChartLine({ id = Number }) {
-
+  const [activeIndex, setActiveIndex] = useState(6);
   let user = userAverageSessions.find((user) => user.userId === id);
   let data = user.sessions;
   data = data.map((el) => ({
@@ -42,6 +43,7 @@ function ChartLine({ id = Number }) {
   return (
     <ResponsiveContainer width="100%" aspect={1} >
       <LineChart
+        onMouseMove={(e) => setActiveIndex(e.activeTooltipIndex)} 
         data={data}
         margin={{
           top: 5,
@@ -57,10 +59,11 @@ function ChartLine({ id = Number }) {
           </linearGradient>
         </defs>
         <XAxis dataKey={'day'} tick={{ fill: '#FFF', fontSize: '12', fontWeight: '500', opacity: 0.5 }} axisLine={false} tickLine={false} />
-        <YAxis type="number" domain={['dataMin - 5', 'dataMax']} hide />
+        <YAxis type="number" hide />
         <Tooltip content={<CustomTooltip />} />
         <Legend iconSize={0} verticalAlign={'top'} content={<CustomLegend />} />
         <Line type="monotone" dataKey="sessionLength" stroke="url(#colorUv)" dot={{ r: 0 }} strokeWidth={2} />
+        <ReferenceArea x1={activeIndex} x2={6} y1={0} y2={60} fill="blue" stroke="blue" strokeOpacity={1} isFront/>
       </LineChart>
     </ResponsiveContainer>
   )
