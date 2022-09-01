@@ -1,7 +1,7 @@
 import "./style.scss";
-import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend,ReferenceArea } from 'recharts';
-import { userAverageSessions } from "api/fetchMockData"
-import {useState} from "react"
+import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend, ReferenceArea } from 'recharts';
+import { getAverageSessions } from "api/fetchData"
+import { useEffect, useState } from 'react';
 
 const daysOfWeek = [
   { index: 1, day: 'L' },
@@ -25,26 +25,40 @@ function CustomTooltip({ payload, active }) {
 }
 
 function CustomLegend() {
-    return (
-      <p className="chart-line-custom-legend">Durée moyenne des sessions</p>
-    );
+  return (
+    <p className="chart-line-custom-legend">Durée moyenne des sessions</p>
+  );
 }
 
 function ChartLine({ id = Number }) {
   const [activeIndex, setActiveIndex] = useState(6);
-  let user = userAverageSessions.find((user) => user.userId === id);
-  let data = user.sessions;
-  data = data.map((el) => ({
-    index: el.day,
-    day: daysOfWeek.find((item) => item.index === el.day).day,
-    sessionLength: el.sessionLength
-  }))
+  const [item, setItem] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const { data } = await getAverageSessions(id);
+        const newData = data.sessions.map((el) => ({
+          index: el.day,
+          day: daysOfWeek.find((item) => item.index === el.day).day,
+          sessionLength: el.sessionLength
+        }))
+        setItem(newData)
+      }
+      catch (error) {
+        console.log(error)
+      }
+
+    })()
+  }, [id])
 
   return (
     <ResponsiveContainer width="100%" aspect={1} >
       <LineChart
-        onMouseMove={(e) => setActiveIndex(e.activeTooltipIndex)} 
-        data={data}
+        onMouseMove={(e) => setActiveIndex(e.activeTooltipIndex)}
+        onMouseLeave={(e) => setActiveIndex(6)}
+        onMouseEnter={(e) => setActiveIndex(6)}
+        data={item}
         margin={{
           top: 5,
           right: 15,
@@ -63,7 +77,7 @@ function ChartLine({ id = Number }) {
         <Tooltip content={<CustomTooltip />} />
         <Legend iconSize={0} verticalAlign={'top'} content={<CustomLegend />} />
         <Line type="monotone" dataKey="sessionLength" stroke="url(#colorUv)" dot={{ r: 0 }} strokeWidth={2} />
-        <ReferenceArea x1={activeIndex} x2={6} y1={0} y2={60} fill="blue" stroke="blue" strokeOpacity={1} isFront/>
+        <ReferenceArea x1={activeIndex} x2={6} y1={0} y2={60} fill="blue" stroke="blue" strokeOpacity={1} isFront />
       </LineChart>
     </ResponsiveContainer>
   )

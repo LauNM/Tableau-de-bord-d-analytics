@@ -1,6 +1,7 @@
 import "./style.scss";
-import { userPerformance } from "api/fetchMockData";
+import { getPerformance } from "../../../api/fetchData";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
+import { useEffect, useState } from 'react';
 
 let translations = [
   { index: 1, name: 'intensity', value: 'Intensité' },
@@ -32,16 +33,40 @@ function customTick({ payload, x, y, textAnchor }) {
 
 function ChartRadar({ id = Number }) {
 
-  let performances = userPerformance.find((user) => user.userId === id);
-  let kindList = performances.kind;
+  const [userData, setUserData] = useState([]);
 
-  let userData = performances.data;
-  userData = userData.map((el) => ({
+  useEffect(() => {
+    (async () => {
+      try {
+          const { data } = await getPerformance(id);
+          const userdata = data.data;
+          const tab = userdata.map((el) => ({
+            index: translations.find((item) => item.name === data.kind[el.kind]).index,
+            translation: translations.find((item) => item.name === data.kind[el.kind]).value,
+            value: el.value,
+            // kind: data.kind[el.kind]
+          })).sort((a,b) => a.index - b.index);
+
+          setUserData(tab)
+
+       
+      }
+      catch (error) {
+        console.log(error)
+      }
+
+    })()
+  }, [id])
+
+ /*  const kindList = item.kind;
+  let userData = item.data; */
+//console.log(kindList, userData)
+  /* userData = userData.map((el) => ({
     index: translations.find((item) => item.name === kindList[el.kind]).index,
     translation: translations.find((item) => item.name === kindList[el.kind]).value,
     value: el.value,
     kind: kindList[el.kind]
-  })).sort((a,b) => a.index - b.index)
+  })).sort((a,b) => a.index - b.index) */
 
   return (
     <ResponsiveContainer width="100%" aspect={1}>

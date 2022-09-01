@@ -1,6 +1,7 @@
 import "./style.scss";
 import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from 'recharts';
-import { userActivity } from "api/fetchMockData"
+import { getActivity } from "api/fetchData";
+import { useEffect, useState } from 'react';
 
 
 const onlyDay = (date) => {
@@ -22,19 +23,32 @@ function CustomTooltip({ payload, active }) {
 
 
 function ChartBar({id = Number}) {
+  const [item, setItem] = useState([]);
 
-  let user = userActivity.find((user) => user.userId === id);
-  let data = user.sessions;
-  data = data.map((obj) => ({
-    day: onlyDay(obj.day),
-    kilogram: obj.kilogram,
-    calories: obj.calories
-  }))
+  useEffect(() => {
+    (async () => {
+      try {
+        const { data } = await getActivity(id);
+        const newData = data.sessions.map((el) => ({
+          day: onlyDay(el.day),
+          kilogram: el.kilogram,
+          calories: el.calories
+        }))
+        setItem(newData)
+        
+      }
+      catch (error) {
+        console.log(error)
+      }
+
+    })()
+  }, [id])
+
   return (
    <ResponsiveContainer  width="100%" height="100%">
       <BarChart
       width={150} height={40} 
-        data={data}
+        data={item}
         barSize={7}
       >
         <CartesianGrid strokeDasharray="3" vertical={false} />
