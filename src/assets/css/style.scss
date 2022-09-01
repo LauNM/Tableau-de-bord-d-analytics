@@ -26,37 +26,45 @@
     }
 
     .dashboard {
-      display: flex;
-      flex-direction: column;
-      box-sizing: border-box;
-      overflow: auto;
-      gap: 50px;
       flex: 1 1 100%;
       margin: 46px 0 0 107px;
-      padding-right: 90px;
       @media only screen and (max-width: 1300px) {
         margin: 30px 0 0 60px;
-        padding-right: 45px;
       }
-    
-      .dashboard-header {
+      .dashboard-wrapper {
+        box-sizing: border-box;
+        height: 100%;
+        width: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        flex: 0 0 120px;
-        #hello {
-          font-weight: 500;
-          font-size: 48px;
-          margin: 0;
+        box-sizing: border-box;
+        overflow: auto;
+        gap: 50px;
+        padding-right: 90px;
+        padding-bottom: 20px;
+        @media only screen and (max-width: 1300px) {
+          padding-right: 45px;
         }
-  
-        #congratulations-message {
-          font-weight: 400;
-          font-size: 18px;
-          margin: 0;
+
+        .dashboard-header {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          flex: 0 0 120px;
+          #hello {
+            font-weight: 500;
+            font-size: 48px;
+            margin: 0;
+          }
+    
+          #congratulations-message {
+            font-weight: 400;
+            font-size: 18px;
+            margin: 0;
+          }
         }
       }
-  
+    
       .dashboard-main {
         display: flex;
         justify-content: space-between;
@@ -152,4 +160,8 @@
   font-size: 15px;
   font-weight: 500;
   color: #20253A;
+
+  @media only screen and (max-width: 1110px) {
+    padding: 8px;
+  }
 }

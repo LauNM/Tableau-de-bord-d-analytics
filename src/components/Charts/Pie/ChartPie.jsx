@@ -3,7 +3,7 @@ import {PieChart, Pie, Cell, ResponsiveContainer, Legend} from 'recharts';
 
 function customLegend({score}) {
   return (
-    <p style={{textAlign: 'center'}}><strong>{score * 100}%</strong> <br />de votre objectif</p>
+    <p className="chart-pie-custom-legend"><strong>{score * 100}%</strong> <br />de votre objectif</p>
 
   );
 }
@@ -14,7 +14,14 @@ function ChartPie({score = Number}) {
 
   return (
     <ResponsiveContainer width="100%" aspect={1}>
-      <PieChart>
+      <PieChart
+      margin={{
+        top: 20,
+        right: 5,
+        left: 5,
+        bottom: 5,
+      }}
+      >
         <Legend content={() => customLegend({score})} width={70} layout={'vertical'} verticalAlign="middle" />
         <Pie 
            data={data}
