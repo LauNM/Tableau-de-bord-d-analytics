@@ -1,11 +1,3 @@
-/* export const getUser = (userId) => {
-    new Promise ((resolve) => {
-
-    })
-    
-    
-} */
-
 const user = [
   {
     id: 12,
@@ -37,22 +29,7 @@ const user = [
       lipidCount: 120
     }
   }
-].map((user) => ({
-  id: user.id,
-  userInfos: {
-    firstName: user.userInfos.firstName,
-    lastName: user.userInfos.lastName,
-    age: user.userInfos.age,
-  },
-  score: user.score || user.todayScore,
-  keyData: {
-    calorieCount: user.keyData.calorieCount,
-    proteinCount: user.keyData.proteinCount,
-    carbohydrateCount: user.keyData.carbohydrateCount,
-    lipidCount: user.keyData.lipidCount
-  }
-}))
-
+];
 const userActivity = [
   {
     userId: 12,
@@ -134,8 +111,7 @@ const userActivity = [
       }
     ]
   }
-]
-
+];
 
 const userAverageSessions = [
   {
@@ -204,8 +180,7 @@ const userAverageSessions = [
       }
     ]
   }
-]
-
+];
 
 const userPerformance = [
   {
@@ -282,7 +257,32 @@ const userPerformance = [
       }
     ]
   }
-]
+];
+
+export async function getUser(userId) {
+  return new Promise((resolve) => {
+    const newData = user.find((current) => current.id === userId);
+    resolve({data: newData})
+  });
+}
+export async function getActivity(userId) {
+  return new Promise((resolve) => {
+    const newData = userActivity.find((current) => current.userId === userId);
+    resolve({data: newData})
+  });
+}
+export async function getAverageSessions(userId) {
+  return new Promise((resolve) => {
+    const newData = userAverageSessions.find((current) => current.userId === userId);
+    resolve({data: newData})
+  });
+}
+export async function getPerformance(userId) {
+  return new Promise((resolve) => {
+    const newData = userPerformance.find((current) => current.userId === userId);
+    resolve({data: newData})
+  });
+}
 
 export {
   user,

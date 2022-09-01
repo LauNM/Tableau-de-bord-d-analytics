@@ -1,17 +1,7 @@
 import "./style.scss";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend, ReferenceArea } from 'recharts';
-import { getAverageSessions } from "api/fetchData"
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
-const daysOfWeek = [
-  { index: 1, day: 'L' },
-  { index: 2, day: 'M' },
-  { index: 3, day: 'M' },
-  { index: 4, day: 'J' },
-  { index: 5, day: 'V' },
-  { index: 6, day: 'S' },
-  { index: 7, day: 'D' }
-]
 
 function CustomTooltip({ payload, active }) {
   if (active) {
@@ -30,27 +20,8 @@ function CustomLegend() {
   );
 }
 
-function ChartLine({ id = Number }) {
+function ChartLine({ data }) {
   const [activeIndex, setActiveIndex] = useState(6);
-  const [item, setItem] = useState([]);
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const { data } = await getAverageSessions(id);
-        const newData = data.sessions.map((el) => ({
-          index: el.day,
-          day: daysOfWeek.find((item) => item.index === el.day).day,
-          sessionLength: el.sessionLength
-        }))
-        setItem(newData)
-      }
-      catch (error) {
-        console.log(error)
-      }
-
-    })()
-  }, [id])
 
   return (
     <ResponsiveContainer width="100%" aspect={1} >
@@ -58,7 +29,7 @@ function ChartLine({ id = Number }) {
         onMouseMove={(e) => setActiveIndex(e.activeTooltipIndex)}
         onMouseLeave={(e) => setActiveIndex(6)}
         onMouseEnter={(e) => setActiveIndex(6)}
-        data={item}
+        data={data}
         margin={{
           top: 5,
           right: 15,
