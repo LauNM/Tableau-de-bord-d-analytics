@@ -4,6 +4,10 @@ import * as apiMock from "./fetchMockData";
 const isMockActive =  process.env.REACT_APP_MOCK_ACTIVE === "true";
 const API = isMockActive ? apiMock : apiServer;
 
+/**
+ * @param {string} date 
+ * @returns {number}
+ */
 const onlyDay = (date) => {
   const newDate = new Date(date);
   return newDate.getDate();

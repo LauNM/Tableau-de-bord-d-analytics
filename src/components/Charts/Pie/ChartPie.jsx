@@ -9,6 +9,10 @@ function customLegend({score}) {
   );
 }
 
+customLegend.propTypes = {
+  score: PropTypes.number
+}
+
 function ChartPie({score}) {
 
   let data = [{value: score, color: '#FF0000'}, {value: 1-score, color: '#FBFBFB'}]
