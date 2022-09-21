@@ -1,6 +1,5 @@
 import "./style.scss";
-import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend, ReferenceArea } from 'recharts';
-import { useState } from 'react';
+import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 
 
 function CustomTooltip({ payload, active }) {
@@ -20,15 +19,19 @@ function CustomLegend() {
   );
 }
 
+function CustomDot({cx,cy}) {
+  return <svg>
+    <circle cx={cx} cy={cy} r={3}  fill="white" opacity={1}/>
+    <circle cx={cx} cy={cy} r={6} fill="white" opacity={0.2}/>
+    <rect x={cx} y={0} width="100%" height="100%" fill="black" opacity={0.1}/>
+  </svg>
+}
+
 function ChartLine({ data }) {
-  const [activeIndex, setActiveIndex] = useState(6);
 
   return (
     <ResponsiveContainer width="100%" aspect={1} >
       <LineChart
-        onMouseMove={(e) => setActiveIndex(e.activeTooltipIndex)}
-        onMouseLeave={(e) => setActiveIndex(6)}
-        onMouseEnter={(e) => setActiveIndex(6)}
         data={data}
         margin={{
           top: 5,
@@ -45,10 +48,9 @@ function ChartLine({ data }) {
         </defs>
         <XAxis dataKey={'day'} tick={{ fill: '#FFF', fontSize: '12', fontWeight: '500', opacity: 0.5 }} axisLine={false} tickLine={false} />
         <YAxis type="number" hide />
-        <Tooltip content={<CustomTooltip />} />
+        <Tooltip content={<CustomTooltip />} cursor={false}/>
         <Legend iconSize={0} verticalAlign={'top'} content={<CustomLegend />} />
-        <Line type="monotone" dataKey="sessionLength" stroke="url(#colorUv)" dot={{ r: 0 }} strokeWidth={2} />
-        <ReferenceArea x1={activeIndex} x2={6} y1={0} y2={60} fill="blue" stroke="blue" strokeOpacity={1} isFront />
+        <Line type="monotone" dataKey="sessionLength" stroke="url(#colorUv)" dot={false} strokeWidth={2} activeDot={<CustomDot />}/>
       </LineChart>
     </ResponsiveContainer>
   )
