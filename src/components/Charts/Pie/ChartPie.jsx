@@ -31,6 +31,7 @@ function ChartPie({score = Number}) {
            startAngle={180} 
            endAngle={-180}
            minAngle={80}
+           cornerRadius={50}
            >
             {
       data.map((entry, index) => (
