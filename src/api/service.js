@@ -1,16 +1,8 @@
-import {
-  getUser as user,
-  getActivity as userActivity,
-  getAverageSessions as userSession,
-  getPerformance as userPerformance
-} from "./fetchData";
-import {
-  getUser as mockUser,
-  getActivity as mockUserActivity,
-  getAverageSessions as mockUserSession,
-  getPerformance as mockUserPerformance
-} from "./fetchMockData";
+import * as apiServer from "./fetchData";
+import * as apiMock from "./fetchMockData";
 
+const isMockActive =  process.env.REACT_APP_MOCK_ACTIVE === "true";
+const API = isMockActive ? apiMock : apiServer;
 
 const onlyDay = (date) => {
   const newDate = new Date(date);
@@ -38,7 +30,7 @@ const translations = [
 
 export async function getUser(userId) {
   try {
-    const { data } = await user(userId);
+    const { data } = await API.getUser(userId);
     return {
       id: data.id,
       keyData: data.keyData,
@@ -53,7 +45,7 @@ export async function getUser(userId) {
 }
 export async function getUserActivity(userId) {
   try {
-    const { data } = await userActivity(userId);
+    const { data } = await API.getActivity(userId);
     return data.sessions.map((el) => ({
       day: onlyDay(el.day),
       kilogram: el.kilogram,
@@ -68,7 +60,7 @@ export async function getUserActivity(userId) {
 
 export async function getUserAverageSessions(userId) {
   try {
-    const { data } = await userSession(userId);
+    const { data } = await API.getAverageSessions(userId);
     return data.sessions.map((el) => ({
       index: el.day,
       day: daysOfWeek.find((item) => item.index === el.day).day,
@@ -82,7 +74,7 @@ export async function getUserAverageSessions(userId) {
 }
 export async function getUserPerformance(userId) {
   try {
-    const { data } = await userPerformance(userId);
+    const { data } = await API.getPerformance(userId);
     return data.data.map((el) => ({
       index: translations.find((item) => item.name === data.kind[el.kind]).index,
       translation: translations.find((item) => item.name === data.kind[el.kind]).value,
