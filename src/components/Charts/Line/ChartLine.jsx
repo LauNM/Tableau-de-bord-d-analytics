@@ -1,6 +1,6 @@
 import "./style.scss";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend } from 'recharts';
-
+import PropTypes from 'prop-types';
 
 function CustomTooltip({ payload, active }) {
   if (active) {
@@ -54,6 +54,13 @@ function ChartLine({ data }) {
       </LineChart>
     </ResponsiveContainer>
   )
+}
+ChartLine.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.shape({
+    day: PropTypes.string,
+    index: PropTypes.number,
+    sessionLength: PropTypes.number
+  })),
 }
 
 export default ChartLine;

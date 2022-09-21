@@ -1,5 +1,6 @@
 import "./style.scss";
 import {PieChart, Pie, Cell, ResponsiveContainer, Legend} from 'recharts';
+import PropTypes from 'prop-types';
 
 function customLegend({score}) {
   return (
@@ -8,7 +9,7 @@ function customLegend({score}) {
   );
 }
 
-function ChartPie({score = Number}) {
+function ChartPie({score}) {
 
   let data = [{value: score, color: '#FF0000'}, {value: 1-score, color: '#FBFBFB'}]
 
@@ -44,4 +45,7 @@ function ChartPie({score = Number}) {
   );
 }
 
+ChartPie.propTypes = {
+  score: PropTypes.number
+}
 export default ChartPie;

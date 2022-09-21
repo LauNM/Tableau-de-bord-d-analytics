@@ -1,5 +1,6 @@
 import "./style.scss";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
+import PropTypes from 'prop-types';
 
 function customTick({ payload, x, y, textAnchor }) {
   return (
@@ -33,6 +34,14 @@ function ChartRadar({ data }) {
       </RadarChart>
     </ResponsiveContainer>
   );
+}
+
+ChartRadar.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
+    translation: PropTypes.string,
+    value: PropTypes.number
+  })),
 }
 
 export default ChartRadar;

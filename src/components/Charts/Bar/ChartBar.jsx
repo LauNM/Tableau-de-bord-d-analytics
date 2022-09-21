@@ -1,5 +1,6 @@
 import "./style.scss";
 import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from 'recharts';
+import PropTypes from 'prop-types';
 
 function CustomTooltip({ payload, active }) {
   if (active) {
@@ -34,6 +35,13 @@ function ChartBar({data}) {
       </BarChart>
     </ResponsiveContainer>
   )
+}
+ChartBar.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.shape({
+    calories: PropTypes.number,
+    day: PropTypes.number,
+    kilogram: PropTypes.number
+  })),
 }
 
 export default ChartBar;

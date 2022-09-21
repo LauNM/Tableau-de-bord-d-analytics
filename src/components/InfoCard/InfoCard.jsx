@@ -1,4 +1,5 @@
 import "./style.scss";
+import PropTypes from 'prop-types';
 
 function InfoCard ({text= "", category = "", children}) {
   return (
@@ -19,4 +20,9 @@ function InfoCard ({text= "", category = "", children}) {
   )
 }
 
+InfoCard.propTypes = {
+  text: PropTypes.string,
+  category: PropTypes.string,
+  children: PropTypes.element
+}
 export default InfoCard;
