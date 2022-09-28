@@ -2,7 +2,7 @@ const user = [
   {
     id: 12,
     userInfos: {
-      firstName: 'Karl',
+      firstName: 'Karl - Test',
       lastName: 'Dovineau',
       age: 31,
     },
@@ -17,7 +17,7 @@ const user = [
   {
     id: 18,
     userInfos: {
-      firstName: 'Cecilia',
+      firstName: 'Cecilia - Test',
       lastName: 'Ratorez',
       age: 34,
     },
@@ -259,24 +259,79 @@ const userPerformance = [
   }
 ];
 
+/**
+ * @typedef {Object} User
+ * @property {number} id
+ * @property {object} keyData
+ * @property {number} keyData.calorieCount
+ * @property {number} keyData.proteinCoun
+ * @property {number} keyData.carbohydrateCount
+ * @property {number} keyData.lipidCount
+ * @property {number} [score]
+ * @property {number} [todayScore]
+ * @property {object} userInfos
+ * @property {string} userInfos.firstName
+ * @property {string} userInfos.lastName
+ * @property {number} userInfos.age
+ * 
+ * @param {number} userId 
+ * @returns {Promise<User>}
+ */
 export async function getUser(userId) {
   return new Promise((resolve) => {
     const newData = user.find((current) => current.id === userId);
     resolve({data: newData})
   });
 }
+
+/**
+ * @typedef {Object} Activity
+ * @property {number} userId
+ * @property {object} sessions
+ * @property {string} sessions.day
+ * @property {number} sessions.kilogram
+ * @property {number} sessions.calories
+ * 
+ * @param {number} userId 
+ * @returns {Promise<Activity>}
+ */
 export async function getActivity(userId) {
   return new Promise((resolve) => {
     const newData = userActivity.find((current) => current.userId === userId);
     resolve({data: newData})
   });
 }
+
+/**
+ * @typedef {Object} Session
+ * @property {number} date
+ * @property {number} sessionLength
+ * 
+ * @typedef {Object} AverageSessions
+ * @property {number} userId
+ * @property {Session[]} sessions
+ * 
+ * @param {number} userId 
+ * @returns {Promise<AverageSessions>}
+ */
 export async function getAverageSessions(userId) {
   return new Promise((resolve) => {
     const newData = userAverageSessions.find((current) => current.userId === userId);
     resolve({data: newData})
   });
 }
+
+/**
+ * @typedef {Object} Performance
+ * @property {number} userId
+ * @property {object} data
+ * @property {number} data.value
+ * @property {number} data.kind
+ * @property {object} kind
+ * 
+ * @param {number} userId 
+ * @returns {Promise<Performance>}
+ */
 export async function getPerformance(userId) {
   return new Promise((resolve) => {
     const newData = userPerformance.find((current) => current.userId === userId);

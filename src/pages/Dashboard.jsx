@@ -24,10 +24,16 @@ function Dashboard() {
     useEffect(() => {
         (async () => {
             try {
-                setCurrentUser(await getUser(parseInt(params.id, 10)));
-                setActivity(await getUserActivity(parseInt(params.id, 10)));    
-                setAverageSessions(await getUserAverageSessions(parseInt(params.id, 10))); 
-                setPerformance(await getUserPerformance(parseInt(params.id, 10)))
+                const result = await Promise.all([
+                    getUser(parseInt(params.id, 10)),
+                    getUserActivity(parseInt(params.id, 10)),
+                    getUserAverageSessions(parseInt(params.id, 10)),
+                    getUserPerformance(parseInt(params.id, 10)) 
+                ])
+                setCurrentUser(result[0])
+                setActivity(result[1])
+                setAverageSessions(result[2])
+                setPerformance(result[3])
                 setIsLoading(false);
             }
             catch (error) {

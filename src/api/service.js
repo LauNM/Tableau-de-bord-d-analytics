@@ -32,6 +32,24 @@ const translations = [
   { index: 6, name: 'cardio', value: 'Cardio' }
 ];
 
+
+/**
+ * @typedef {Object} User
+ * @property {number} id
+ * @property {object} keyData
+ * @property {number} keyData.calorieCount
+ * @property {number} keyData.proteinCoun
+ * @property {number} keyData.carbohydrateCount
+ * @property {number} keyData.lipidCount
+ * @property {number} score
+ * @property {object} userInfos
+ * @property {string} userInfos.firstName
+ * @property {string} userInfos.lastName
+ * @property {number} userInfos.age
+ * 
+ * @param {number} userId 
+ * @returns {Promise<User>}
+ */
 export async function getUser(userId) {
   try {
     const { data } = await API.getUser(userId);
@@ -47,6 +65,16 @@ export async function getUser(userId) {
     console.log(error)
   }
 }
+
+/**
+ * @typedef {Object} UserActivity
+ * @property {number} day
+ * @property {number} kilogram
+ * @property {number} calories
+ * 
+ * @param {number} userId 
+ * @returns {Promise<UserActivity>}
+ */
 export async function getUserActivity(userId) {
   try {
     const { data } = await API.getActivity(userId);
@@ -61,7 +89,15 @@ export async function getUserActivity(userId) {
   }
 }
 
-
+/**
+ * @typedef {Object} UserAverageSessions
+ * @property {number} index
+ * @property {string} day
+* @property {number} sessionLength
+ * 
+ * @param {number} userId 
+ * @returns {Promise<UserAverageSessions>}
+ */
 export async function getUserAverageSessions(userId) {
   try {
     const { data } = await API.getAverageSessions(userId);
@@ -76,6 +112,16 @@ export async function getUserAverageSessions(userId) {
   }
 
 }
+
+/**
+ * @typedef {Object} UserPerformance
+ * @property {number} index
+ * @property {string} translation
+ * @property {number} value
+ * 
+ * @param {number} userId 
+ * @returns {Promise<UserPerformance>}
+ */
 export async function getUserPerformance(userId) {
   try {
     const { data } = await API.getPerformance(userId);

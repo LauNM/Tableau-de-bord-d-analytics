@@ -46,11 +46,13 @@ export const getActivity = (userId) => {
 }
 
 /**
+ * @typedef {Object} Session
+ * @property {number} date
+ * @property {number} sessionLength
+ * 
  * @typedef {Object} AverageSessions
  * @property {number} userId
- * @property {object[]} sessions
- * @property {number} sessions[].date
- * @property {number} sessions[].sessionLength
+ * @property {Session[]} sessions
  * 
  * @param {number} userId 
  * @returns {Promise<AverageSessions>}
