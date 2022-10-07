@@ -2,30 +2,30 @@ const user = [
   {
     id: 12,
     userInfos: {
-      firstName: 'Karl - Test',
+      firstName: 'Karl - Mock',
       lastName: 'Dovineau',
       age: 31,
     },
-    todayScore: 0.12,
+    todayScore: 0.23,
     keyData: {
-      calorieCount: 1930,
-      proteinCount: 155,
-      carbohydrateCount: 290,
-      lipidCount: 50
+      calorieCount: 1030,
+      proteinCount: 76,
+      carbohydrateCount: 120,
+      lipidCount: 20
     }
   },
   {
     id: 18,
     userInfos: {
-      firstName: 'Cecilia - Test',
+      firstName: 'Cecilia - Mock',
       lastName: 'Ratorez',
       age: 34,
     },
-    score: 0.3,
+    score: 0.6,
     keyData: {
-      calorieCount: 2500,
-      proteinCount: 90,
-      carbohydrateCount: 150,
+      calorieCount: 1400,
+      proteinCount: 100,
+      carbohydrateCount: 75,
       lipidCount: 120
     }
   }
@@ -36,17 +36,17 @@ const userActivity = [
     sessions: [
       {
         day: '2020-07-01',
-        kilogram: 80,
+        kilogram: 82,
         calories: 240
       },
       {
         day: '2020-07-02',
-        kilogram: 80,
+        kilogram: 81,
         calories: 220
       },
       {
         day: '2020-07-03',
-        kilogram: 81,
+        kilogram: 80,
         calories: 280
       },
       {
@@ -61,12 +61,12 @@ const userActivity = [
       },
       {
         day: '2020-07-06',
-        kilogram: 78,
+        kilogram: 80,
         calories: 162
       },
       {
         day: '2020-07-07',
-        kilogram: 76,
+        kilogram: 79,
         calories: 390
       }
     ]
@@ -76,32 +76,32 @@ const userActivity = [
     sessions: [
       {
         day: '2020-07-01',
-        kilogram: 70,
+        kilogram: 50,
         calories: 240
       },
       {
         day: '2020-07-02',
-        kilogram: 69,
+        kilogram: 52,
         calories: 220
       },
       {
         day: '2020-07-03',
-        kilogram: 70,
+        kilogram: 51,
         calories: 280
       },
       {
         day: '2020-07-04',
-        kilogram: 70,
+        kilogram: 52,
         calories: 500
       },
       {
         day: '2020-07-05',
-        kilogram: 69,
+        kilogram: 53,
         calories: 160
       },
       {
         day: '2020-07-06',
-        kilogram: 69,
+        kilogram: 52,
         calories: 162
       },
       {
@@ -119,27 +119,27 @@ const userAverageSessions = [
     sessions: [
       {
         day: 1,
-        sessionLength: 30
-      },
-      {
-        day: 2,
-        sessionLength: 23
-      },
-      {
-        day: 3,
         sessionLength: 45
       },
       {
+        day: 2,
+        sessionLength: 45
+      },
+      {
+        day: 3,
+        sessionLength: 40
+      },
+      {
         day: 4,
-        sessionLength: 50
+        sessionLength: 20
       },
       {
         day: 5,
-        sessionLength: 0
+        sessionLength: 30
       },
       {
         day: 6,
-        sessionLength: 0
+        sessionLength: 35
       },
       {
         day: 7,
@@ -152,31 +152,31 @@ const userAverageSessions = [
     sessions: [
       {
         day: 1,
-        sessionLength: 30
+        sessionLength: 20
       },
       {
         day: 2,
-        sessionLength: 40
+        sessionLength: 20
       },
       {
         day: 3,
-        sessionLength: 50
+        sessionLength: 40
       },
       {
         day: 4,
-        sessionLength: 30
+        sessionLength: 20
       },
       {
         day: 5,
-        sessionLength: 30
+        sessionLength: 40
       },
       {
         day: 6,
-        sessionLength: 50
+        sessionLength: 60
       },
       {
         day: 7,
-        sessionLength: 50
+        sessionLength: 20
       }
     ]
   }
@@ -195,27 +195,27 @@ const userPerformance = [
     },
     data: [
       {
-        value: 80,
+        value: 120,
         kind: 1
       },
       {
-        value: 120,
+        value: 70,
         kind: 2
       },
       {
-        value: 140,
+        value: 120,
         kind: 3
       },
       {
-        value: 50,
+        value: 140,
         kind: 4
       },
       {
-        value: 200,
+        value: 100,
         kind: 5
       },
       {
-        value: 90,
+        value: 130,
         kind: 6
       }
     ]
@@ -232,19 +232,19 @@ const userPerformance = [
     },
     data: [
       {
-        value: 200,
+        value: 70,
         kind: 1
       },
       {
-        value: 240,
+        value: 90,
         kind: 2
       },
       {
-        value: 80,
+        value: 120,
         kind: 3
       },
       {
-        value: 80,
+        value: 130,
         kind: 4
       },
       {
