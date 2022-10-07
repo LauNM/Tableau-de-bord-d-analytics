@@ -11,6 +11,18 @@
     overflow: hidden;
     display: flex;
     height: 100%;
+    .home {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 100%;
+      color:#434547;
+      p {
+        font-style: italic;
+      }
+  
+    }
     .choose-user {
       position: absolute;
       right: 0;
