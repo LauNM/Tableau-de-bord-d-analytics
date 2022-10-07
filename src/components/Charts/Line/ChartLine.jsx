@@ -19,16 +19,15 @@ function CustomLegend() {
   );
 }
 
-function CustomDot({cx,cy}) {
+function CustomDot({ cx, cy }) {
   return <svg>
-    <circle cx={cx} cy={cy} r={3}  fill="white" opacity={1}/>
-    <circle cx={cx} cy={cy} r={6} fill="white" opacity={0.2}/>
-    <rect x={cx} y={0} width="100%" height="100%" fill="black" opacity={0.1}/>
+    <circle cx={cx} cy={cy} r={3} fill="white" opacity={1} />
+    <circle cx={cx} cy={cy} r={6} fill="white" opacity={0.2} />
+    <rect x={cx} y={0} width="100%" height="100%" fill="black" opacity={0.1} />
   </svg>
 }
 
 function ChartLine({ data }) {
-
   return (
     <ResponsiveContainer width="100%" aspect={1} >
       <LineChart
@@ -48,9 +47,9 @@ function ChartLine({ data }) {
         </defs>
         <XAxis dataKey={'day'} tick={{ fill: '#FFF', fontSize: '12', fontWeight: '500', opacity: 0.5 }} axisLine={false} tickLine={false} />
         <YAxis type="number" hide />
-        <Tooltip content={<CustomTooltip />} cursor={false}/>
+        <Tooltip content={<CustomTooltip />} cursor={false} />
         <Legend iconSize={0} verticalAlign={'top'} content={<CustomLegend />} />
-        <Line type="monotone" dataKey="sessionLength" stroke="url(#colorUv)" dot={false} strokeWidth={2} activeDot={<CustomDot />}/>
+        <Line type="monotone" dataKey="sessionLength" stroke="url(#colorUv)" dot={false} strokeWidth={2} activeDot={<CustomDot />} />
       </LineChart>
     </ResponsiveContainer>
   )

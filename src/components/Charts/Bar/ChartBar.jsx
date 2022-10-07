@@ -11,25 +11,31 @@ function CustomTooltip({ payload, active }) {
       </div>
     );
   }
-
   return null;
 }
 
 function ChartBar({data}) {
-
   return (
    <ResponsiveContainer  width="100%" height="100%">
       <BarChart
-      width={150} height={40} 
+        width={150} 
+        height={40} 
         data={data}
         barSize={7}
-      >
+        >
         <CartesianGrid strokeDasharray="3" vertical={false} />
         <XAxis dataKey="day"/>
         <YAxis dataKey="kilogram" yAxisId="right" orientation={"right"} domain={[ 'dataMin - 1', 'dataMax + 1']}/>
         <YAxis dataKey="calories" yAxisId="left" orientation={"left"} hide />
         <Tooltip content={<CustomTooltip />}/>
-        <Legend verticalAlign="top" align="right" iconType="circle" iconSize={8} height={50}  formatter={(value, entry, index) => <span className="legend">{value}</span>}/>
+        <Legend 
+          verticalAlign="top" 
+          align="right" 
+          iconType="circle" 
+          iconSize={8} 
+          height={50}  
+          formatter={(value) => <span className="legend">{value}</span>}
+        />
         <Bar yAxisId="right" name="Poids (kg)" dataKey="kilogram" fill="#282D30" radius={[3, 3, 0, 0]} />
         <Bar yAxisId="left" name="Calories brûlées (kCal)" dataKey="calories" fill="#E60000" radius={[3, 3, 0, 0]} />
       </BarChart>

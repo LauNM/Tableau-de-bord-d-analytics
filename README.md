@@ -10,6 +10,9 @@
 # Check Node.js version
 node --version
 ```
+### IDE
+
+- [Visual Studio Code](https://code.visualstudio.com/)
 
 ### Instructions
 1. Fork this repo
@@ -37,7 +40,7 @@ REACT_APP_MOCK_ACTIVE=true
 ```
 
 
-### Endpoints 
+## Endpoints 
 This project includes four endpoints that you will be able to use:
 
 - http://localhost:3001/ - Home page 

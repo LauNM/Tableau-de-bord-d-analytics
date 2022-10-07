@@ -4,11 +4,13 @@ import PropTypes from 'prop-types';
 
 function customLegend({score}) {
   return (
-    <p className="chart-pie-custom-legend"><strong>{score * 100}%</strong> <br />de votre objectif</p>
-
+    <p className="chart-pie-custom-legend">
+      <strong>{score * 100}%</strong> 
+      <br />
+      de votre objectif
+    </p>
   );
 }
-
 customLegend.propTypes = {
   score: PropTypes.number
 }
@@ -20,12 +22,12 @@ function ChartPie({score}) {
   return (
     <ResponsiveContainer width="100%" aspect={1}>
       <PieChart
-      margin={{
-        top: 20,
-        right: 5,
-        left: 5,
-        bottom: 5,
-      }}
+        margin={{
+          top: 20,
+          right: 5,
+          left: 5,
+          bottom: 5,
+        }}
       >
         <Legend content={() => customLegend({score})} width={70} layout={'vertical'} verticalAlign="middle" />
         <Pie 
@@ -52,4 +54,5 @@ function ChartPie({score}) {
 ChartPie.propTypes = {
   score: PropTypes.number
 }
+
 export default ChartPie;
