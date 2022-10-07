@@ -93,7 +93,7 @@ export async function getUserActivity(userId) {
  * @typedef {Object} UserAverageSessions
  * @property {number} index
  * @property {string} day
-* @property {number} sessionLength
+ * @property {number} sessionLength
  * 
  * @param {number} userId 
  * @returns {Promise<UserAverageSessions>}
