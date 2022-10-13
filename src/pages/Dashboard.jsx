@@ -37,7 +37,7 @@ function Dashboard() {
                 setIsLoading(false);
             }
             catch (error) {
-                navigate('/');
+                navigate('/error');
                 console.log(error)
             }
 

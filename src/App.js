@@ -5,6 +5,7 @@ import LateralNavBar from "components/Navbar/LateralNavBar/LateralNavBar";
 import { user } from "api/fetchMockData";
 import Home from "pages/Home";
 import Dashboard from 'pages/Dashboard';
+import Error from 'pages/Error';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/:id" element={<Dashboard />} />
+          <Route path="/error" element={<Error />} />
         </Routes>
       </div>
     </div>

@@ -59,10 +59,10 @@ export async function getUser(userId) {
       score: data.score || data.todayScore,
       userInfos: data.userInfos
     }
-
   }
   catch (error) {
     console.log(error)
+    throw error
   }
 }
 
@@ -86,6 +86,7 @@ export async function getUserActivity(userId) {
   }
   catch (error) {
     console.log(error)
+    throw error
   }
 }
 
@@ -109,6 +110,7 @@ export async function getUserAverageSessions(userId) {
   }
   catch (error) {
     console.log(error)
+    throw error
   }
 
 }
@@ -133,5 +135,6 @@ export async function getUserPerformance(userId) {
   }
   catch (error) {
     console.log(error)
+    throw error
   }
 }

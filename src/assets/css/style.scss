@@ -11,7 +11,7 @@
     overflow: hidden;
     display: flex;
     height: 100%;
-    .home {
+    .home, .error {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -176,4 +176,14 @@
   @media only screen and (max-width: 1110px) {
     padding: 8px;
   }
+}
+
+.link-button {
+  background-color: #282D30;
+  border: none;
+  color: white;
+  padding: 4px 7px;
+  border-radius: 5px;
+  margin: 5px 5px 0 0;
+  cursor: pointer;
 }
